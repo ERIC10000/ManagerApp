@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".PickerNotification">
+
+
+    <TextView
+
+        android:id="@+id/tvAppNAme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="h3"
+        android:layout_marginTop="110dp"
+        android:drawableStart="@drawable/ic_app_logo"
+        android:drawablePadding="6dp"
+        android:textStyle="bold"
+        android:text="KeNaWPWA"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/writeAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/h4"
+        android:text=" Say Something... "
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAppNAme"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/Quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/writeAddress"
+        android:textAlignment="center"
+        style="@style/h2"
+        android:gravity="center"
+        android:text="Word Notified : Imara Daima"
+        android:layout_marginTop="15dp"/>
+
+
+    <EditText
+
+        android:id="@+id/emailLogin"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/Quality"
+        style="@style/editText"
+        android:hint="Write Message \n Here..."
+        android:inputType="text"
+        android:layout_marginTop="50dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        style="@style/blueButtonStyle"
+        android:fontFamily="@font/poppins_thin"
+        android:text="Send"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:drawableEnd="@drawable/baseline_send_24"
+        android:drawableTint="@color/white"
+        android:drawablePadding="6dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/emailLogin" />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.91" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
