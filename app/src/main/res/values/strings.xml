@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ManagerApp</string>
+    <string name="slogan"> Waste Pickers \n  Management Application </string>
 </resources>
