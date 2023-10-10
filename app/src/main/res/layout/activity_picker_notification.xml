@@ -50,6 +50,18 @@
         android:gravity="center"
         android:text="Word Notified : Imara Daima"
         android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/emailLogin2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/Quality"
+        style="@style/editText"
+        android:hint="Title"
+        android:inputType="textEmailAddress"
+
+        android:layout_marginTop="50dp"/>
 
 
     <EditText
@@ -59,7 +71,7 @@
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="@id/guidelineLeft"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintTop_toBottomOf="@id/Quality"
+        app:layout_constraintTop_toBottomOf="@id/emailLogin2"
         style="@style/editText"
         android:hint="Write Message \n Here..."
         android:inputType="text"

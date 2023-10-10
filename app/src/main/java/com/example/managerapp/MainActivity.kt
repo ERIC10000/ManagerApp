@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.managerapp.adapters.UnApprovedMembersAdapter
 import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
+import com.example.managerapp.helpers.PrefsHelper
 import com.example.managerapp.models.ApprovedMemberItem
 import com.google.gson.GsonBuilder
 import org.json.JSONArray
@@ -48,7 +49,9 @@ class MainActivity : AppCompatActivity() {
 
         val text: TextView = findViewById(R.id.noApprovals)
         val managerTitle = findViewById<TextView>(R.id.managerTitle)
-        managerTitle.text = "Hello"
+        val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
+        val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
+        managerTitle.text = firstName + " " + lastName
         fetchUnapprovedMembers(text)
 
         swipe = findViewById(R.id.swipe)

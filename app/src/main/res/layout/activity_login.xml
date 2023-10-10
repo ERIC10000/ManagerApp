@@ -42,17 +42,7 @@
             android:gravity="center"
             android:textSize="35sp"/>
 
-        <TextView
-            android:id="@+id/Quality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@id/writeAddress"
-            android:textAlignment="center"
-            style="@style/h2"
-            android:gravity="center"
-            android:text="Dont have an Account? Register"
-            android:layout_marginTop="15dp"/>
+
 
         <EditText
             android:id="@+id/emailLogin"
@@ -60,7 +50,7 @@
             android:layout_height="60dp"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/Quality"
+            app:layout_constraintTop_toBottomOf="@id/writeAddress"
             style="@style/editText"
             android:hint="Email / Phone Number i.e 0722..."
             android:inputType="textEmailAddress"
