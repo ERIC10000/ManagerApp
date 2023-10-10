@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
@@ -38,6 +39,12 @@ class MainActivity : AppCompatActivity() {
 
         val count = findViewById<TextView>(R.id.memberCount)
         getMemberCount(count)
+
+        val logout = findViewById<ImageView>(R.id.logout)
+        logout.setOnClickListener {
+            PrefsHelper.clearPrefs(this)
+            startActivity(Intent(applicationContext , LoginActivity::class.java))
+        }
 
 
 
