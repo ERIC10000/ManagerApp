@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398321904287",
+    "project_id": "pickerapp-f6d7f",
+    "storage_bucket": "pickerapp-f6d7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398321904287:android:e62bff0037ab8f8ce4d0aa",
+        "android_client_info": {
+          "package_name": "com.example.managerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWaDv64xpqh1pDtjznMLlq8oGBdrFON2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

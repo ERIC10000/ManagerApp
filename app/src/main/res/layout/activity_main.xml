@@ -42,26 +42,24 @@
         app:layout_constraintTop_toBottomOf="@id/welcome"
         android:layout_marginTop="5dp"/>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:cardCornerRadius="100dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        app:cardElevation="10dp">
+
 
 
         <ImageView
-            android:id="@+id/smallImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/profile"/>
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/baseline_logout_24"/>
 
 
-    </androidx.cardview.widget.CardView>
+
+
+
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardHeader"
@@ -90,6 +88,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -129,14 +128,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Constituency"
+                    android:text="County"
                     android:textColor="@color/g_gray700"
                     android:textSize="15sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="E. East"
+                    android:text="Nairobi"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
