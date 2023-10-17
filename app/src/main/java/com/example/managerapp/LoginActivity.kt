@@ -59,6 +59,9 @@ class LoginActivity : AppCompatActivity() {
                 val lastName = data?.getString("Last Name")
                 PrefsHelper.savePrefs(applicationContext,"lastName",lastName!!)
 
+                val county = data?.getString("County")
+                PrefsHelper.savePrefs(applicationContext,"county",county!!)
+
                 Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
                 val intent = Intent(applicationContext , MainActivity::class.java)
                 startActivity(intent)

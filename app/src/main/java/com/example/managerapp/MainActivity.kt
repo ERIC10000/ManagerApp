@@ -58,19 +58,22 @@ class MainActivity : AppCompatActivity() {
         val managerTitle = findViewById<TextView>(R.id.managerTitle)
         val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
         val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
+        val county = PrefsHelper.getPrefs(applicationContext , "county")
         managerTitle.text = firstName + " " + lastName
-        fetchUnapprovedMembers(text)
+        fetchUnapprovedMembers(text , county)
 
         swipe = findViewById(R.id.swipe)
         swipe.setOnRefreshListener {
-            fetchUnapprovedMembers(text)
+            fetchUnapprovedMembers(text , county)
         }
     }
 
-    fun fetchUnapprovedMembers(text:TextView){
+    fun fetchUnapprovedMembers(text:TextView , county: String){
         val helper = ApiHelper(this)
+        val body = JSONObject()
+        body.put("county",county)
         val api = Constants.BASE_URL + "view_unapproved_members"
-        helper.get(api , object : ApiHelper.CallBack{
+        helper.post(api , body , object : ApiHelper.CallBack{
             override fun onSuccess(result: JSONArray?) {
                 swipe.isRefreshing  = false
                 val gson = GsonBuilder().create()
@@ -93,6 +96,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(result: String?) {
                 text.visibility = View.VISIBLE
                 swipe.isRefreshing  = false
+                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
             }
         })
     }
