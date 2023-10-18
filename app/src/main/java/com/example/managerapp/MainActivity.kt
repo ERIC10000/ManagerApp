@@ -37,8 +37,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        val count = findViewById<TextView>(R.id.memberCount)
-        getMemberCount(count)
+
 
         val logout = findViewById<ImageView>(R.id.logout)
         logout.setOnClickListener {
@@ -59,8 +58,14 @@ class MainActivity : AppCompatActivity() {
         val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
         val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
         val county = PrefsHelper.getPrefs(applicationContext , "county")
+
+        val count = findViewById<TextView>(R.id.memberCount)
+        getMemberCount(count,county)
+
+
         managerTitle.text = firstName + " " + lastName
         fetchUnapprovedMembers(text , county)
+
 
         swipe = findViewById(R.id.swipe)
         swipe.setOnRefreshListener {
@@ -101,11 +106,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun getMemberCount (count:TextView){
+    fun getMemberCount (count:TextView , county: String){
         val helper = ApiHelper(this)
         val api = Constants.BASE_URL + "view_number_of_members"
         val body = JSONObject()
-        body.put("ward","Makadara")
+        body.put("county",county)
         helper.post(api , body , object : ApiHelper.CallBack{
             override fun onSuccess(result: JSONArray?) {
 
