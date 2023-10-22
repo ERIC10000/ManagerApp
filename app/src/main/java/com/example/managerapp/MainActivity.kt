@@ -4,11 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -31,6 +34,57 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // change Password Dialog
+        val changePassDialog: LinearLayout = findViewById(R.id.changePassword)
+        changePassDialog.setOnClickListener {
+
+            val alertDialog = AlertDialog.Builder(this@MainActivity).create()
+            alertDialog.setTitle("")
+            val view =
+                LayoutInflater.from(this@MainActivity).inflate(R.layout.change_password_dialog, null, false)
+            alertDialog.setView(view)
+
+            // radio button implementation here...
+
+
+            alertDialog.show()
+        }
+
+
+        // my members
+        val myMembers: LinearLayout = findViewById(R.id.linearMembers)
+        myMembers.setOnClickListener {
+
+            val intent = Intent(applicationContext, MyMembersActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // pending approvals
+        val pendingApprovals: LinearLayout = findViewById(R.id.linearPendingApprovals)
+        pendingApprovals.setOnClickListener {
+
+            val intent = Intent(applicationContext, PendingApprovalsActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // Add Profile Photo
+        val addProfilePhoto: LinearLayout = findViewById(R.id.linearAddProfilePhoto)
+        addProfilePhoto.setOnClickListener {
+
+            val intent = Intent(applicationContext, AddProfilePhotoActivity::class.java)
+            startActivity(intent)
+
+
+
+
+        }
+
+
+
+
 
         unApprovedMembersAdapter = UnApprovedMembersAdapter(applicationContext)
         recyclerView = findViewById(R.id.recycler1)

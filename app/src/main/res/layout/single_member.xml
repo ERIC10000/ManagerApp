@@ -1,157 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:padding="15dp"-->
-<!--    android:background="@color/white"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
-
-<!--    <com.google.android.material.card.MaterialCardView-->
-
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        app:cardBackgroundColor="@color/g_blue"-->
-<!--        app:cardCornerRadius="14dp"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
-
-<!--        <androidx.appcompat.widget.AppCompatImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_margin="8dp"-->
-<!--            android:src="@drawable/baseline_co_present_24"-->
-<!--            app:tint="@color/white"/>-->
-
-
-<!--    </com.google.android.material.card.MaterialCardView>-->
-
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginLeft="16dp"-->
-<!--        android:background="@color/g_white"-->
-<!--        app:cardCornerRadius="14sp"-->
-<!--        app:cardElevation="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:paddingStart="40dp"-->
-<!--            android:paddingLeft="40dp"-->
-<!--            android:paddingTop="16dp"-->
-<!--            android:paddingEnd="16dp"-->
-<!--            android:paddingRight="16dp"-->
-<!--            android:paddingBottom="16dp">-->
-
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/textMessage"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:layout_marginRight="8dp"-->
-<!--                android:text="Name: Erick Otieno"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="14sp"-->
-<!--                android:gravity="center"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"/>-->
-
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvSender"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Ward: Imara Daima"-->
-<!--                android:gravity="center"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/textMessage"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                android:textColor="@color/black"/>-->
-
-<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
-
-<!--&lt;!&ndash;            android:id="@+id/textMessageBody"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textColor="@color/black"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textStyle="bold"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="Mobile Number: +254712345678"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintTop_toBottomOf="@id/tvSender"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="10dp"/>&ndash;&gt;-->
-
-<!--            <LinearLayout-->
-<!--                android:gravity="center"-->
-<!--                android:layout_marginTop="6dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/tvSender"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent">-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/Phone"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Mobile: +254712345678"-->
-<!--                    android:textColor="@color/black"-->
-
-<!--                    android:textStyle="bold"/>-->
-
-<!--                <TextView-->
-
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_marginTop="4dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Email: erick@gmail.com"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textStyle="bold"/>-->
-
-<!--                <TextView-->
-
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_marginTop="4dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Contribution: 500 KES"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textStyle="bold"/>-->
-
-
-<!--                <androidx.appcompat.widget.AppCompatButton-->
-<!--                    android:id="@+id/next3"-->
-<!--                    android:layout_width="150dp"-->
-<!--                    android:layout_height="35dp"-->
-<!--                    style="@style/blueButtonStyle"-->
-<!--                    android:text="Approve"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    android:textColor="@color/white"/>-->
-
-
-
-<!--            </LinearLayout>-->
-
-
-
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                </com.google.android.material.card.MaterialCardView>-->
-
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -514,7 +361,7 @@
                 android:layout_height="40dp"
                 style="@style/blueButtonStyle"
                 android:fontFamily="@font/poppins_thin"
-                android:text="Approve"
+                android:text="Download"
                 android:textColor="@color/white"
                 android:layout_marginEnd="20dp"
                 />
@@ -525,7 +372,7 @@
                 android:layout_height="40dp"
                 style="@style/redButtonStyle"
                 android:fontFamily="@font/poppins_thin"
-                android:text="Decline"
+                android:text="Delete"
                 android:textColor="@color/white"
                 />
 
@@ -549,6 +396,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="240dp" />
+
+
+
+
+
+
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,46 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/header"
+    <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:background="@color/g_blue"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        android:tag="menu">
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Welcome"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
 
-    <TextView
-        android:id="@+id/managerTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Kelvin Muema"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcome"
-        android:layout_marginTop="5dp"/>
+            <!--            profile photo, mame and county-->
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center_vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:padding="8dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="100dp"
+                    android:layout_marginStart="20dp">
+
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/sample_profile"/>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="15dp"
+                        android:text="Jeremy Ole Moonka"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/county"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="15dp"
+                        android:text="County : NAIROBI"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/ward"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="15dp"
+                        android:text="Ward : PARKLANDS"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <!--            Settings-->
+            <LinearLayout
+                android:id="@+id/linearAddProfilePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="80dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_person_outline_24"
+                    app:tint="@color/g_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:text="Add Profile Photo"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="60dp"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/g_blue"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/changePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_lock_24"
+                    app:tint="@color/g_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:text="Change Password"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="60dp"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/g_blue"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearPendingApprovals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_verified_user_24"
+                    app:tint="@color/g_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:text="Pending Approvals"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/g_blue"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_monetization_on_24"
+                    app:tint="@color/g_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:text="Total Contributions"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/g_blue"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearMembers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_supervisor_account_24"
+                    app:tint="@color/g_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"
+                    android:text="My Members"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="90dp"
+                    android:src="@drawable/arrow_right"
+                    app:tint="@color/g_blue"/>
+
+            </LinearLayout>
+
+
+            <!--            close button-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    app:cardCornerRadius="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/closeDrawer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/g_blue"
+                                android:src="@drawable/baseline_cancel_24"
+                                app:tint="@color/white"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Close"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"/>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </LinearLayout>
+
+
+    </nl.psdcompany.duonavigationdrawer.views.DuoMenuView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="content"
+        android:background="@color/white"
+        android:visibility="visible">
+
+
+        <View
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="@color/g_blue"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Welcome"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/managerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Kelvin Muema"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome"
+            android:layout_marginTop="5dp"/>
 
 
 
@@ -56,172 +358,167 @@
             android:src="@drawable/baseline_logout_24"/>
 
 
-
-
-
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/g_white"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/header"
-        app:layout_constraintTop_toBottomOf="@id/header">
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/card"
-            android:padding="15sp">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/g_white"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/header"
+            app:layout_constraintTop_toBottomOf="@id/header">
 
-            <TextView
-                style="@style/h4"
-                android:id="@+id/identity"
-                android:layout_width="wrap_content"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ID: KenWAPWA/NRB/11"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id="@+id/NotifyPickers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Notify Pickers"
-                android:textColor="@color/g_blue"
-                android:textSize="14sp"
-                android:drawableEnd="@drawable/baseline_co_present_24"
-                android:drawablePadding="5dp"
-                android:drawableTint="@color/g_blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginEnd="10dp"/>
-
-
-            <LinearLayout
-                android:id="@+id/location"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/members"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/identity">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/baseline_location_on_24"
-                    app:tint="@color/g_blue"/>
+                android:id="@+id/card"
+                android:padding="15sp">
 
                 <TextView
+                    style="@style/h4"
+                    android:id="@+id/identity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="County"
-                    android:textColor="@color/g_gray700"
-                    android:textSize="15sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nairobi"
+                    android:text="ID: KenWAPWA/NRB/11"
                     android:textColor="@color/black"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    android:textSize="15sp"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/members"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/contributions"
-                app:layout_constraintStart_toEndOf="@id/location"
-                app:layout_constraintTop_toBottomOf="@+id/identity">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/baseline_person_24"
-                    app:tint="@color/g_blue"/>
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                    android:id="@+id/NotifyPickers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Members"
-                    android:textColor="@color/g_gray700"
-                    android:textSize="15sp"/>
+                    android:text="Notify Pickers"
+                    android:textColor="@color/g_blue"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/baseline_co_present_24"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/g_blue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="10dp"/>
 
-                <TextView
-                    android:id="@+id/memberCount"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:id="@+id/location"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="190"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/members"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/identity">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/baseline_location_on_24"
+                        app:tint="@color/g_blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="County"
+                        android:textColor="@color/g_gray700"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nairobi"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
 
 
-            </LinearLayout>
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginEnd="8dp"
-                android:id="@+id/contributions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/members"
-                app:layout_constraintTop_toBottomOf="@+id/identity">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/baseline_attach_money_24"
-                    app:tint="@color/g_blue"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/members"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Contributions"
-                    android:textColor="@color/g_gray700"
-                    android:textSize="15sp"/>
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/contributions"
+                    app:layout_constraintStart_toEndOf="@id/location"
+                    app:layout_constraintTop_toBottomOf="@+id/identity">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/baseline_person_24"
+                        app:tint="@color/g_blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Members"
+                        android:textColor="@color/g_gray700"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/memberCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="190"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginEnd="8dp"
+                    android:id="@+id/contributions"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="200000 KES"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/members"
+                    app:layout_constraintTop_toBottomOf="@+id/identity">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/baseline_attach_money_24"
+                        app:tint="@color/g_blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Contributions"
+                        android:textColor="@color/g_gray700"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="200000 KES"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
 
 
-            </LinearLayout>
+                </LinearLayout>
 
 
 
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
@@ -229,73 +526,79 @@
 
 
 
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="16dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardHeader"
-        android:layout_marginTop="350dp">
-
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:padding="16dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardHeader"
+            android:layout_marginTop="350dp">
 
-            <TextView
-                style="@style/h3"
-                android:id="@+id/approvals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pending Approvals"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="8dp"
-                android:textStyle="bold"/>
-            <TextView
-                style="@style/h3"
-                android:id="@+id/noApprovals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No Unapproved \n Members found"
-                android:textSize="40sp"
-                android:visibility="gone"
-                android:layout_below="@id/approvals"
-                android:textColor="@color/black"
-                android:layout_marginBottom="8dp"
-                android:textStyle="bold"/>
 
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/swipe"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler1"
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/h3"
+                    android:id="@+id/approvals"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/noApprovals"
-                    tools:listitem="@layout/single_approvals"/>
+                    android:text="Pending Approvals"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    style="@style/h3"
+                    android:id="@+id/noApprovals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Unapproved \n Members found"
+                    android:textSize="40sp"
+                    android:visibility="gone"
+                    android:layout_below="@id/approvals"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"
+                    android:textStyle="bold"/>
 
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/noApprovals"
+                        tools:listitem="@layout/single_approvals"/>
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 
-        </RelativeLayout>
+            </RelativeLayout>
 
 
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout>
