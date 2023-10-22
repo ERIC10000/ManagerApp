@@ -13,6 +13,9 @@
         android:theme="@style/Theme.WasteManagerApp"
         tools:targetApi="31">
         <activity
+            android:name=".PreviewIDActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddProfilePhotoActivity"
             android:exported="false" />
         <activity

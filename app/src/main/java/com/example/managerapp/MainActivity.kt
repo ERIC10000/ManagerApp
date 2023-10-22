@@ -12,6 +12,7 @@ import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -83,12 +84,19 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // intent preview id
+        val download: AppCompatButton = findViewById(R.id.btn_login)
+        download.setOnClickListener {
+            val intent = Intent(applicationContext, PreviewIDActivity::class.java)
+            startActivity(intent)
+
+        }
 
 
 
-        unApprovedMembersAdapter = UnApprovedMembersAdapter(applicationContext)
-        recyclerView = findViewById(R.id.recycler1)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+//        unApprovedMembersAdapter = UnApprovedMembersAdapter(applicationContext)
+//        recyclerView = findViewById(R.id.recycler1)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
 
 
 
@@ -107,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val text: TextView = findViewById(R.id.noApprovals)
+//        val text: TextView = findViewById(R.id.noApprovals)
         val managerTitle = findViewById<TextView>(R.id.managerTitle)
         val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
         val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
@@ -118,13 +126,13 @@ class MainActivity : AppCompatActivity() {
 
 
         managerTitle.text = firstName + " " + lastName
-        fetchUnapprovedMembers(text , county)
-
-
-        swipe = findViewById(R.id.swipe)
-        swipe.setOnRefreshListener {
-            fetchUnapprovedMembers(text , county)
-        }
+//        fetchUnapprovedMembers(text , county)
+//
+//
+//        swipe = findViewById(R.id.swipe)
+//        swipe.setOnRefreshListener {
+//            fetchUnapprovedMembers(text , county)
+//        }
     }
 
     fun fetchUnapprovedMembers(text:TextView , county: String){
