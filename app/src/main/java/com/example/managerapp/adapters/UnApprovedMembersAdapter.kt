@@ -43,7 +43,7 @@ class UnApprovedMembersAdapter (var context : Context):
         regNo = itemList[position].regNo
 
 
-        name.text = "Name : \${itemList[position].firstName} ${itemList[position].lastName}"
+        name.text = "Name : ${itemList[position].lastName}"
         phone.text = "Phone: +254${itemList[position].phoneNumber}"
 
         next.setOnClickListener {

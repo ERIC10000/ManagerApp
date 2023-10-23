@@ -87,6 +87,11 @@ class MembersAdapter (var context : Context):
 
     }
 
+    fun filterList(filterList: List<Member>){
+        itemList = filterList
+        notifyDataSetChanged()
+    }
+
     fun setListItems(data: List<Member>){
         itemList = data
         notifyDataSetChanged()

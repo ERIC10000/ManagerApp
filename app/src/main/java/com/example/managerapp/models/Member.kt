@@ -11,7 +11,7 @@ data class Member(
     val Idnumb: Int,
     val JoiningDate: String,
     val LastName: String,
-    val MobileNumber: Int,
+    val MobileNumber: String,
     val Password: String,
     val Photo: Any
 )
