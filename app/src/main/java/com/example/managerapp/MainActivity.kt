@@ -135,38 +135,7 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
-    fun fetchUnapprovedMembers(text:TextView , county: String){
-        val helper = ApiHelper(this)
-        val body = JSONObject()
-        body.put("county",county)
-        val api = Constants.BASE_URL + "view_unapproved_members"
-        helper.post(api , body , object : ApiHelper.CallBack{
-            override fun onSuccess(result: JSONArray?) {
-                swipe.isRefreshing  = false
-                val gson = GsonBuilder().create()
-                val itemList:List<ApprovedMemberItem> = gson.fromJson(
-                    result.toString() ,
-                    Array<ApprovedMemberItem>::class.java).toList()
 
-                unApprovedMembersAdapter.setListItems(itemList)
-                recyclerView.adapter = unApprovedMembersAdapter
-                Log.d("jeso",itemList.toString())
-                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onSuccess(result: JSONObject?) {
-                text.visibility = View.VISIBLE
-                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
-                swipe.isRefreshing  = false
-            }
-
-            override fun onFailure(result: String?) {
-                text.visibility = View.VISIBLE
-                swipe.isRefreshing  = false
-                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
 
     fun getMemberCount (count:TextView , county: String){
         val helper = ApiHelper(this)

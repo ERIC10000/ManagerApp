@@ -11,21 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.managerapp.R
 import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
-import com.example.managerapp.models.ApprovedMemberItem
+import com.example.managerapp.models.Member
 import org.json.JSONArray
 import org.json.JSONObject
 
-class UnApprovedMembersAdapter (var context : Context):
-    RecyclerView.Adapter<UnApprovedMembersAdapter.ViewHolder>() {
-    var regNo : Int = 0
-    var itemList : List<ApprovedMemberItem> = listOf()
+class MembersAdapter (var context : Context):
+    RecyclerView.Adapter<MembersAdapter.ViewHolder>() {
+
+    var itemList : List<Member> = listOf()
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.single_approvals,parent , false
+            R.layout.single_member,parent , false
         )
         return  ViewHolder(view)
     }
@@ -36,26 +36,40 @@ class UnApprovedMembersAdapter (var context : Context):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        var regNo = holder.itemView.findViewById<TextView>(R.id.regnotagvalue)
         val name = holder.itemView.findViewById<TextView>(R.id.namevalue)
+        val idNo = holder.itemView.findViewById<TextView>(R.id.idvalue)
+        val county = holder.itemView.findViewById<TextView>(R.id.countyvalue)
+        val ward = holder.itemView.findViewById<TextView>(R.id.wardvalue)
         val phone = holder.itemView.findViewById<TextView>(R.id.telvalue)
         val next = holder.itemView.findViewById<AppCompatButton>(R.id.btn_download)
 
-        regNo = itemList[position].regNo
+        regNo.text = "REG.NO: " + itemList[position].DriverID
+        name.text = "NAME : ${itemList[position].FirstName} ${itemList[position].LastName}"
+        phone.text = "TEL : +254${itemList[position].MobileNumber}"
+        idNo.text = "ID.NO: ${itemList[position].Idnumb}"
 
 
-        name.text = "Name : \${itemList[position].firstName} ${itemList[position].lastName}"
-        phone.text = "Phone: +254${itemList[position].phoneNumber}"
+        county.text = "COUNTY : " + itemList[position].County
+        ward.text = "WARD : " + itemList[position].Constituency
+
+        var id = itemList[position].ID
+
+
+
+
+
 
         next.setOnClickListener {
-            approveMembers()
+            deleteMembers(id.toString())
         }
 
     }
-    fun approveMembers(){
+    fun deleteMembers(id: String){
         val helper = ApiHelper(context)
-        val api = Constants.BASE_URL + "approve_registration"
+        val api = Constants.BASE_URL + "remove_picker"
         val body = JSONObject()
-        body.put("regNo",regNo)
+        body.put("id",id)
         helper.post(api , body , object : ApiHelper.CallBack{
             override fun onSuccess(result: JSONArray?) {
 
@@ -73,7 +87,7 @@ class UnApprovedMembersAdapter (var context : Context):
 
     }
 
-    fun setListItems(data: List<ApprovedMemberItem>){
+    fun setListItems(data: List<Member>){
         itemList = data
         notifyDataSetChanged()
     }
