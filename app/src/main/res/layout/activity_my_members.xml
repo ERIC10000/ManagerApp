@@ -22,15 +22,38 @@
         android:background="@drawable/search_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        style="@style/h3"
+        android:id="@+id/noApprovals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No  Members found"
+        android:textSize="40sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/search"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"/>
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/search"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/single_member"/>
+        android:layout_marginTop="8dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/search"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/single_member"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
