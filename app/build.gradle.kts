@@ -23,6 +23,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -72,4 +74,10 @@ dependencies {
 
     //drawer
     implementation("nl.psdcompany:duo-navigation-drawer:3.0.0")
+
+    // pdf download
+    implementation("com.itextpdf.android:itext7-core-android:7.2.3")
+
+
+
 }

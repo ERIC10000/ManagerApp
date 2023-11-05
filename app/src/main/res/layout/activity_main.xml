@@ -90,45 +90,14 @@
 
 
             <!--            Settings-->
-            <LinearLayout
-                android:id="@+id/linearAddProfilePhoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="80dp">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/baseline_person_outline_24"
-                    app:tint="@color/g_blue"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_marginStart="10dp"
-                    android:text="Add Profile Photo"
-                    android:textColor="@color/black"/>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="60dp"
-                    android:src="@drawable/arrow_right"
-                    app:tint="@color/g_blue"/>
-
-
-
-            </LinearLayout>
             <LinearLayout
                 android:id="@+id/changePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="72dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -183,6 +152,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -280,7 +250,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Close"
+                            android:text="Log Out"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_marginStart="10dp"/>
@@ -458,6 +428,7 @@
                         app:tint="@color/g_blue"/>
 
                     <TextView
+                        android:id="@+id/members"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -982,11 +953,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
 
 
