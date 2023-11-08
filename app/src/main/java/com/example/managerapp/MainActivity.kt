@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
         // members
-        val textMembers: TextView = findViewById(R.id.members)
+        val textMembers: TextView = findViewById(R.id.members2)
         textMembers.setOnClickListener {
             val intent = Intent(applicationContext, MyMembersActivity::class.java)
             startActivity(intent)

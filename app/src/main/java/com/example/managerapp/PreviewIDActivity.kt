@@ -3,23 +3,40 @@ package com.example.managerapp
 import android.graphics.Bitmap
 import android.graphics.Canvas
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.Environment
-import android.view.View
+//import androidx.appcompat.app.AppCompatActivity
+//import android.os.Bundle
+//import android.os.Environment
+//import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+//import androidx.cardview.widget.CardView
+//import java.io.ByteArrayOutputStream
+//import java.io.File
+import android.content.Context
+
+
+
+//import com.itextpdf.io.image.ImageDataFactory
+//import com.itextpdf.kernel.pdf.PdfDocument
+//import com.itextpdf.kernel.pdf.PdfWriter
+//import com.itextpdf.layout.Document
+//import com.itextpdf.layout.element.Image
+
+
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.pdf.PdfDocument
+import android.os.Bundle
+import android.os.Environment
+import android.view.LayoutInflater
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import android.app.DownloadManager
 
-
-
-import com.itextpdf.io.image.ImageDataFactory
-import com.itextpdf.kernel.pdf.PdfDocument
-import com.itextpdf.kernel.pdf.PdfWriter
-import com.itextpdf.layout.Document
-import com.itextpdf.layout.element.Image
 
 class PreviewIDActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,56 +48,51 @@ class PreviewIDActivity : AppCompatActivity() {
         val download: AppCompatButton = findViewById(R.id.btn_login)
         download.setOnClickListener {
 
-            val pdfFileName = "IDCARD.pdf"
-            val pdfDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-
-            val pdfFile = File(pdfDirectory, pdfFileName)
-
-            val pdfDocument = PdfDocument(PdfWriter(pdfFile))
-            val pdf = Document(pdfDocument)
-
-            // Create a bitmap from your CardView
+            // front
             val cardView : CardView = findViewById(R.id.cardView)
-            val cardViewBitmap = viewToBitmap(cardView)
+            createAndSavePDF(this, cardView)
 
 
-            // Create a bitmap from your CardView
-            val cardView2 : CardView = findViewById(R.id.cardView2)
-            val cardViewBitmap2 = viewToBitmap(cardView2)
+           // Now you can save the PDF file and provide a download link or any other functionality you want.
+            Toast.makeText(applicationContext, "Downloaded Successfully, Check Downloads", Toast.LENGTH_LONG).show()
+
+      }
 
 
+    }
 
-            // Convert the bitmap to an iText Image
-            val image = Image(ImageDataFactory.create(cardViewBitmapToByteArray(cardViewBitmap)))
-            pdf.add(image)
+    private fun createAndSavePDF(context: Context, view: View) {
+        val pdfDocument = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(view.width, view.height, 1).create()
+        val page = pdfDocument.startPage(pageInfo)
+        val canvas = page.canvas
 
-            // Convert the bitmap to an iText Image
-            val image2 = Image(ImageDataFactory.create(cardViewBitmapToByteArray(cardViewBitmap2)))
-            pdf.add(image2)
+        view.draw(canvas)
 
-            // Close the document
-            pdf.close()
+        pdfDocument.finishPage(page)
 
-            // Now you can save the PDF file and provide a download link or any other functionality you want.
-            Toast.makeText(applicationContext, "Saved Successfully, Proceed to Downloads", Toast.LENGTH_LONG).show()
-
-
+        // Get the directory for saving the PDF
+        val directory = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "PDFs")
+        if (!directory.exists()) {
+            directory.mkdirs()
         }
 
+        val fileName = "KeNaWaPWA.pdf"
+        val file = File(directory, fileName)
 
+        try {
+            val outputStream = FileOutputStream(file)
+            pdfDocument.writeTo(outputStream)
+            pdfDocument.close()
+            outputStream.close()
+
+//            // Downloads
+//            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
+//            context.startActivity(intent)
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 
-    private fun viewToBitmap(view: View): Bitmap {
-        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        view.layout(view.left, view.top, view.right, view.bottom)
-        view.draw(canvas)
-        return bitmap
-    }
-
-    private fun cardViewBitmapToByteArray(bitmap: Bitmap): ByteArray {
-        val outputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-        return outputStream.toByteArray()
-    }
 }

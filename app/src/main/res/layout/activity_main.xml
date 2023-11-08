@@ -38,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/sample_profile"/>
+                        android:src="@drawable/baseline_person_24"/>
 
 
                 </androidx.cardview.widget.CardView>
@@ -58,7 +58,7 @@
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:layout_marginStart="15dp"
-                        android:text="Jeremy Ole Moonka"
+                        android:text="Manager Name"
                         android:textColor="@color/black"/>
 
                     <TextView
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
                         android:layout_marginStart="15dp"
-                        android:text="County : NAIROBI"
+                        android:text="County"
                         android:textColor="@color/black"/>
 
                     <TextView
@@ -78,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
                         android:layout_marginStart="15dp"
-                        android:text="Ward : PARKLANDS"
+                        android:text="Ward"
                         android:textColor="@color/black"/>
 
                 </LinearLayout>
@@ -363,14 +363,15 @@
                     android:id="@+id/NotifyPickers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Notify Pickers"
+                    android:text="Send Notification"
                     android:textColor="@color/g_blue"
-                    android:textSize="14sp"
-                    android:drawableEnd="@drawable/baseline_co_present_24"
+                    android:textSize="24sp"
+                    android:drawableEnd="@drawable/baseline_circle_notifications_24"
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/g_blue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginEnd="10dp"/>
 
 
@@ -428,7 +429,7 @@
                         app:tint="@color/g_blue"/>
 
                     <TextView
-                        android:id="@+id/members"
+                        android:id="@+id/members2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -477,7 +478,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="200000 KES"
+                        android:text="0 KES"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
@@ -881,7 +882,7 @@
 
                         <ImageView
                             android:id="@+id/sign"
-                            android:layout_width="80dp"
+                            android:layout_width="60dp"
                             android:layout_height="80dp"
                             android:src="@drawable/sign"
                             app:layout_constraintTop_toBottomOf="@id/linearLine"
@@ -918,7 +919,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            app:layout_constraintGuide_end="293dp" />
+                            app:layout_constraintGuide_end="250dp" />
 
 
                         <androidx.constraintlayout.widget.Guideline
@@ -926,7 +927,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            app:layout_constraintGuide_begin="270dp" />
+                            app:layout_constraintGuide_begin="250dp" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
