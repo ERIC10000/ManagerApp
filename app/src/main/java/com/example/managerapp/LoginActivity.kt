@@ -53,10 +53,10 @@ class LoginActivity : AppCompatActivity() {
                 val data = result?.getJSONObject("data")
                 val id = data?.getInt("ID")
                 PrefsHelper.savePrefs(applicationContext,"id",id!!.toString())
-                val firstName = data?.getString("First Name")
+                val firstName = data?.getString("FirstName")
                 PrefsHelper.savePrefs(applicationContext,"firstName",firstName!!)
 
-                val lastName = data?.getString("Last Name")
+                val lastName = data?.getString("LastName")
                 PrefsHelper.savePrefs(applicationContext,"lastName",lastName!!)
 
                 val county = data?.getString("County")
