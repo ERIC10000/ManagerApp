@@ -120,12 +120,28 @@ class MainActivity : AppCompatActivity() {
         val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
         val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
         val county = PrefsHelper.getPrefs(applicationContext , "county")
+        val id = PrefsHelper.getPrefs(applicationContext , "id")
+
+        val bindedCounty = findViewById<TextView>(R.id.kaunti)
+        bindedCounty.text = county
 
         val count = findViewById<TextView>(R.id.memberCount)
         getMemberCount(count,county)
 
+        val idNo = findViewById<TextView>(R.id.idvalue)
+        idNo.text = id
+
+        val name = findViewById<TextView>(R.id.namevalue)
+        name.text = firstName + " " + lastName
+
+        val caunty = findViewById<TextView>(R.id.countyvalue)
+        caunty.text = county
+
+
 
         managerTitle.text = firstName + " " + lastName
+
+
 //        fetchUnapprovedMembers(text , county)
 //
 //
