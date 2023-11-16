@@ -46,11 +46,7 @@ class ApiHelper(var context : Context) {
                     callBack.onFailure(errorResponse.toString())
                     //super.onFailure(statusCode, headers, throwable, errorResponse)
                     //Todo handle the error
-                    Toast.makeText(
-                        context,
-                        "Error Occurred" + throwable.toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
+
                     // progressbar.visibility = View.GONE
                 }
             })
