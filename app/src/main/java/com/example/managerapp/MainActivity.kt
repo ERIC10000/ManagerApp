@@ -71,14 +71,14 @@ class MainActivity : AppCompatActivity() {
 
             // radio button implementation here...
 
-            val passwordInput1 = findViewById<TextInputEditText>(R.id.InputPassword2)
-            val passwordInput2 = findViewById<TextInputEditText>(R.id.InputPassword3)
-            val passwordLayout = findViewById<TextInputLayout>(R.id.password3)
-            val passwordLayout2 = findViewById<TextInputLayout>(R.id.password2)
+            val passwordInput1 = view.findViewById<TextInputEditText>(R.id.InputPassword2)
+            val passwordInput2 = view.findViewById<TextInputEditText>(R.id.InputPassword3)
+            val passwordLayout = view.findViewById<TextInputLayout>(R.id.password3)
+            val passwordLayout2 = view.findViewById<TextInputLayout>(R.id.password2)
 
 
             var ps = ""
-            if (passwordInput2 != null) {
+
                 passwordInput2.addTextChangedListener(object : TextWatcher {
                     override fun beforeTextChanged(
                         s: CharSequence?,
@@ -115,10 +115,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 })
-            } else {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-                // Handle the case where textInputEditText is null, perhaps log an error or take appropriate action
-            }
+
 
 
 
