@@ -42,6 +42,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        // change Password Dialog
+        val contributionDialog: LinearLayout = findViewById(R.id.total)
+        contributionDialog.setOnClickListener {
+
+            val alertDialog = AlertDialog.Builder(this@MainActivity).create()
+            alertDialog.setTitle("")
+            val view =
+                LayoutInflater.from(this@MainActivity).inflate(R.layout.contribution_dialog, null, false)
+            alertDialog.setView(view)
+
+            // radio button implementation here...
+
+            alertDialog.show()
+
+        }
+
         // change Password Dialog
         val changePassDialog: LinearLayout = findViewById(R.id.changePassword)
         changePassDialog.setOnClickListener {
@@ -125,6 +142,23 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+          // close Drawer
+                val cardCloseDrawer: LinearLayout = findViewById(R.id.closeDrawer)
+                cardCloseDrawer.setOnClickListener{
+
+                val intent = Intent(applicationContext, IntroductionActivity::class.java)
+                startActivity(intent)
+
+                }
+
+        // members
+        val textMembers: TextView = findViewById(R.id.members2)
+        textMembers.setOnClickListener {
+            val intent = Intent(applicationContext, MyMembersActivity::class.java)
+            startActivity(intent)
+        }
+
+
         // pending approvals
         val pendingApprovals: LinearLayout = findViewById(R.id.linearPendingApprovals)
         pendingApprovals.setOnClickListener {
@@ -134,17 +168,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // Add Profile Photo
-        val addProfilePhoto: LinearLayout = findViewById(R.id.linearAddProfilePhoto)
-        addProfilePhoto.setOnClickListener {
-
-            val intent = Intent(applicationContext, AddProfilePhotoActivity::class.java)
-            startActivity(intent)
-
-
-
-
-        }
+//        // Add Profile Photo
+//        val addProfilePhoto: LinearLayout = findViewById(R.id.linearAddProfilePhoto)
+//        addProfilePhoto.setOnClickListener {
+//
+//            val intent = Intent(applicationContext, AddProfilePhotoActivity::class.java)
+//            startActivity(intent)
+//
+//
+//
+//
+//        }
 
 
         // intent preview id

@@ -38,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/sample_profile"/>
+                        android:src="@drawable/baseline_person_24"/>
 
 
                 </androidx.cardview.widget.CardView>
@@ -58,7 +58,7 @@
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:layout_marginStart="15dp"
-                        android:text="Jeremy Ole Moonka"
+                        android:text="Manager Name"
                         android:textColor="@color/black"/>
 
                     <TextView
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
                         android:layout_marginStart="15dp"
-                        android:text="County : NAIROBI"
+                        android:text="County"
                         android:textColor="@color/black"/>
 
                     <TextView
@@ -79,7 +79,7 @@
                         android:textSize="15sp"
                         android:visibility="invisible"
                         android:layout_marginStart="15dp"
-                        android:text="Ward : PARKLANDS"
+                        android:text="Ward"
                         android:textColor="@color/black"/>
 
                 </LinearLayout>
@@ -91,45 +91,14 @@
 
 
             <!--            Settings-->
-            <LinearLayout
-                android:id="@+id/linearAddProfilePhoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="80dp">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/baseline_person_outline_24"
-                    app:tint="@color/g_blue"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_marginStart="10dp"
-                    android:text="Add Profile Photo"
-                    android:textColor="@color/black"/>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="60dp"
-                    android:src="@drawable/arrow_right"
-                    app:tint="@color/g_blue"/>
-
-
-
-            </LinearLayout>
             <LinearLayout
                 android:id="@+id/changePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="72dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -184,6 +153,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -281,7 +251,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Close"
+                            android:text="Log Out"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_marginStart="10dp"/>
@@ -394,14 +364,15 @@
                     android:id="@+id/NotifyPickers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Notify Pickers"
+                    android:text="Send Notification"
                     android:textColor="@color/g_blue"
-                    android:textSize="14sp"
-                    android:drawableEnd="@drawable/baseline_co_present_24"
+                    android:textSize="24sp"
+                    android:drawableEnd="@drawable/baseline_circle_notifications_24"
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/g_blue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginEnd="10dp"/>
 
 
@@ -460,6 +431,7 @@
                         app:tint="@color/g_blue"/>
 
                     <TextView
+                        android:id="@+id/members2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -508,7 +480,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="200000 KES"
+                        android:text="0 KES"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
@@ -916,7 +888,7 @@
 
                         <ImageView
                             android:id="@+id/sign"
-                            android:layout_width="80dp"
+                            android:layout_width="60dp"
                             android:layout_height="80dp"
                             android:src="@drawable/sign"
                             app:layout_constraintTop_toBottomOf="@id/linearLine"
@@ -953,7 +925,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            app:layout_constraintGuide_end="293dp" />
+                            app:layout_constraintGuide_end="250dp" />
 
 
                         <androidx.constraintlayout.widget.Guideline
@@ -961,7 +933,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            app:layout_constraintGuide_begin="270dp" />
+                            app:layout_constraintGuide_begin="250dp" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -988,11 +960,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
 
 

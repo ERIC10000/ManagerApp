@@ -343,8 +343,8 @@
 
             <ImageView
                 android:id="@+id/sign"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/sign"
                 app:layout_constraintTop_toBottomOf="@id/linearLine"
                 app:layout_constraintStart_toStartOf="@id/guideline2"/>
@@ -380,7 +380,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="293dp" />
+                app:layout_constraintGuide_end="270dp" />
 
 
             <androidx.constraintlayout.widget.Guideline
@@ -560,6 +560,7 @@
         android:layout_height="55dp"
         android:fontFamily="@font/poppins_thin"
         android:text="Download Cards"
+
         android:layout_marginLeft="30dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="25dp"
