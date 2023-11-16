@@ -72,4 +72,7 @@ dependencies {
 
     //drawer
     implementation("nl.psdcompany:duo-navigation-drawer:3.0.0")
+
+    // picasso library
+    implementation ("com.squareup.picasso:picasso:2.8")
 }

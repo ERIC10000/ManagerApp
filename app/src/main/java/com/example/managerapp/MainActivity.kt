@@ -3,9 +3,12 @@ package com.example.managerapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextClock
@@ -21,6 +24,8 @@ import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
 import com.example.managerapp.helpers.PrefsHelper
 import com.example.managerapp.models.ApprovedMemberItem
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.GsonBuilder
 import org.json.JSONArray
 import org.json.JSONObject
@@ -30,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var unApprovedMembersAdapter: UnApprovedMembersAdapter
     lateinit var swipe : SwipeRefreshLayout
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +49,67 @@ class MainActivity : AppCompatActivity() {
             val alertDialog = AlertDialog.Builder(this@MainActivity).create()
             alertDialog.setTitle("")
             val view =
-                LayoutInflater.from(this@MainActivity).inflate(R.layout.change_password_dialog, null, false)
+                LayoutInflater.from(this).inflate(R.layout.change_password_dialog, null, false)
             alertDialog.setView(view)
 
             // radio button implementation here...
+
+            val passwordInput1 = findViewById<TextInputEditText>(R.id.InputPassword2)
+            val passwordInput2 = findViewById<TextInputEditText>(R.id.InputPassword3)
+            val passwordLayout = findViewById<TextInputLayout>(R.id.password3)
+            val passwordLayout2 = findViewById<TextInputLayout>(R.id.password2)
+
+
+            var ps = ""
+            if (passwordInput2 != null) {
+                passwordInput2.addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        count: Int,
+                        after: Int
+                    ) {
+
+                    }
+
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                        val passwordInput = s.toString()
+                        if (passwordInput != passwordInput1.text.toString()){
+                            passwordLayout.error = "Your Passwords do not match"
+                            passwordLayout2.error = "Your Passwords do not match"
+
+                        }
+                        else if (passwordInput.isEmpty()){
+                            passwordLayout.helperText = "Enter Your Password"
+                            passwordLayout.error = ""
+                            passwordLayout2.error = ""
+                        }
+                        else {
+                            passwordLayout.helperText = "Your Passwords match"
+                            passwordLayout2.helperText = "Your Passwords match"
+                            passwordLayout.error = ""
+                            passwordLayout2.error = ""
+                            ps = passwordInput
+                        }
+                    }
+
+                    override fun afterTextChanged(s: Editable?) {
+
+
+                    }
+                })
+            } else {
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+                // Handle the case where textInputEditText is null, perhaps log an error or take appropriate action
+            }
+
+
+
+            val pay = view.findViewById<Button>(R.id.pay)
+            pay.setOnClickListener {
+                changePassord(ps)
+            }
+
 
 
             alertDialog.show()
@@ -125,6 +188,9 @@ class MainActivity : AppCompatActivity() {
         val bindedCounty = findViewById<TextView>(R.id.kaunti)
         bindedCounty.text = "  " +county
 
+        val countyValue = findViewById<TextView>(R.id.county)
+        countyValue.text = "  " +county
+
         val count = findViewById<TextView>(R.id.memberCount)
         getMemberCount(count,county)
 
@@ -133,6 +199,9 @@ class MainActivity : AppCompatActivity() {
 
         val name = findViewById<TextView>(R.id.namevalue)
         name.text =  "  " + firstName + " " + lastName
+
+        val names = findViewById<TextView>(R.id.name)
+        names.text = "  " + firstName + " " + lastName
 
         val caunty = findViewById<TextView>(R.id.countyvalue)
         caunty.text = "    " + county
@@ -173,6 +242,29 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun changePassord(password : String){
+        val api = Constants.BASE_URL + "/update_password"
+        val helper = ApiHelper(applicationContext)
+        val body = JSONObject()
+        val id = PrefsHelper.getPrefs(applicationContext , "id").toInt()
+        body.put("id" , id)
+        body.put("password", password)
+        helper.post(api , body , object : ApiHelper.CallBack{
+            override fun onSuccess(result: JSONArray?) {
+
+            }
+
+            override fun onSuccess(result: JSONObject?) {
+                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
+
+            }
+
+            override fun onFailure(result: String?) {
+                Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 

@@ -1,9 +1,11 @@
 package com.example.managerapp.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -11,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.managerapp.R
 import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
+import com.example.managerapp.helpers.PrefsHelper
 import com.example.managerapp.models.Member
+import com.squareup.picasso.Picasso
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -36,13 +40,14 @@ class MembersAdapter (var context : Context):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        var regNo = holder.itemView.findViewById<TextView>(R.id.regnotagvalue)
+        val regNo = holder.itemView.findViewById<TextView>(R.id.regnotagvalue)
         val name = holder.itemView.findViewById<TextView>(R.id.namevalue)
         val idNo = holder.itemView.findViewById<TextView>(R.id.idvalue)
         val county = holder.itemView.findViewById<TextView>(R.id.countyvalue)
         val ward = holder.itemView.findViewById<TextView>(R.id.wardvalue)
         val phone = holder.itemView.findViewById<TextView>(R.id.telvalue)
         val next = holder.itemView.findViewById<AppCompatButton>(R.id.btn_download)
+        val image = holder.itemView.findViewById<ImageView>(R.id.bigImage)
 
         regNo.text = "REG.NO: " + itemList[position].DriverID
         name.text = "NAME : ${itemList[position].FirstName} ${itemList[position].LastName}"
@@ -53,18 +58,62 @@ class MembersAdapter (var context : Context):
         county.text = "COUNTY : " + itemList[position].County
         ward.text = "WARD : " + itemList[position].Constituency
 
-        var id = itemList[position].ID
-
-
-
-
-
+        val id = itemList[position].ID
 
         next.setOnClickListener {
             deleteMembers(id.toString())
         }
 
+
+        val api = Constants.BASE_URL + "/get_image"
+        val helper = ApiHelper(context)
+        val body = JSONObject()
+        body.put("id" , id)
+        helper.post(api , body , object : ApiHelper.CallBack{
+            override fun onSuccess(result: JSONArray?) {
+
+            }
+
+            override fun onSuccess(result: JSONObject?) {
+                // Check if the fragment is attached to a context
+                    // Use requireContext() only if the fragment is attached
+                    Toast.makeText(context, result.toString(), Toast.LENGTH_SHORT).show()
+
+                    // Safely access the result
+                    val image_path = result?.getString("image_path")
+
+                    // Ensure image_path is not null before saving
+                    if (!image_path.isNullOrBlank()) {
+                        Log.d("HAPA", image_path)
+
+                        val IMAGE_URL = "https://pickerapp.pythonanywhere.com/api/get_photo/"
+                        Picasso.get().load(IMAGE_URL + image_path).into(image)
+
+                    } else {
+                        // Handle the case where image_path is null or empty
+                        Toast.makeText(context, "No image found", Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+
+            override fun onFailure(result: String?) {
+                Toast.makeText(context, result.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+
+
+
+
+
+
+
+
+
+
+    })
     }
+
+
     fun deleteMembers(id: String){
         val helper = ApiHelper(context)
         val api = Constants.BASE_URL + "remove_picker"
@@ -87,6 +136,8 @@ class MembersAdapter (var context : Context):
 
     }
 
+
+
     fun filterList(filterList: List<Member>){
         itemList = filterList
         notifyDataSetChanged()
@@ -96,4 +147,6 @@ class MembersAdapter (var context : Context):
         itemList = data
         notifyDataSetChanged()
     }
+
+
 }

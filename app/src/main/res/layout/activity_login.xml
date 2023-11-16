@@ -78,17 +78,39 @@
 
             android:layout_marginTop="50dp"/>
 
-        <EditText
-            android:id="@+id/passwordLogin"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/emailLogin"
-            style="@style/editText"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:layout_marginTop="15dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+                app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+                app:layout_constraintTop_toBottomOf="@id/emailLogin"
+                app:startIconDrawable="@drawable/baseline_lock_24"
+                app:startIconTint="@color/g_blue"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/g_blue"
+                android:textColorHint="@color/black"
+                app:helperTextEnabled="true"
+                app:helperText="Enter Password"
+                app:helperTextTextColor="@color/g_blue"
+                android:hint="Input Password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/InputPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:typeface="sans"
+                        android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <TextView
