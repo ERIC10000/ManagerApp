@@ -27,6 +27,10 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.pdf.PdfDocument
 import android.os.Bundle
+
+import android.widget.TextView
+import com.example.managerapp.helpers.PrefsHelper
+
 import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,10 +42,26 @@ import java.io.IOException
 import android.app.DownloadManager
 
 
+
 class PreviewIDActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preview_idactivity)
+
+        val firstName = PrefsHelper.getPrefs(applicationContext , "firstName")
+        val lastName = PrefsHelper.getPrefs(applicationContext , "lastName")
+        val county = PrefsHelper.getPrefs(applicationContext , "county")
+        val id = PrefsHelper.getPrefs(applicationContext , "id")
+
+        val idName : TextView = findViewById(R.id.namevalue)
+        val idNo : TextView = findViewById(R.id.idvalue)
+        val idPhone : TextView = findViewById(R.id.telvalue)
+        val idCounty : TextView = findViewById(R.id.countyvalue)
+
+        idName.text = firstName + " " + lastName
+        idNo.text = id
+        idPhone.text = "0714296170"
+        idCounty.text = county
 
 
         //id  card to pdf
@@ -57,6 +77,7 @@ class PreviewIDActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Downloaded Successfully, Check Downloads", Toast.LENGTH_LONG).show()
 
       }
+
 
 
     }

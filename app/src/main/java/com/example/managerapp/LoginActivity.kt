@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
 import com.example.managerapp.helpers.PrefsHelper
+import com.google.android.material.textfield.TextInputEditText
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -18,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val email = findViewById<EditText>(R.id.emailLogin)
-        val password = findViewById<EditText>(R.id.passwordLogin)
+        val password = findViewById<TextInputEditText>(R.id.InputPassword)
         val login = findViewById<AppCompatButton>(R.id.btn_login)
         val link = findViewById<TextView>(R.id.ForgotLogin)
 
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun login (email:EditText , password:EditText){
+    private fun login (email:EditText , password:TextInputEditText){
         val helper = ApiHelper(this)
         val api = Constants.BASE_URL + "manager_login"
         val body = JSONObject()
@@ -68,6 +69,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onFailure(result: String?) {
+                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
                 Toast.makeText(applicationContext, "An error occurred , check if your email is correct", Toast.LENGTH_SHORT).show()
             }
         })

@@ -75,6 +75,10 @@ dependencies {
     //drawer
     implementation("nl.psdcompany:duo-navigation-drawer:3.0.0")
 
+
+    // picasso library
+    implementation ("com.squareup.picasso:picasso:2.8")
+
     // pdf download
     implementation("com.itextpdf.android:itext7-core-android:7.2.3")
 
