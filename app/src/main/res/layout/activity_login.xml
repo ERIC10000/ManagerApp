@@ -126,6 +126,15 @@
             android:layout_marginTop="15dp"
             android:textColor="@color/black"/>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ProgressBar"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/ForgotLogin" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="0dp"
@@ -137,7 +146,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@id/ForgotLogin" />
+            app:layout_constraintTop_toBottomOf="@id/ProgressBar" />
 
 
         <ImageView

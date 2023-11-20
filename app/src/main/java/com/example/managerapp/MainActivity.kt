@@ -47,15 +47,17 @@ class MainActivity : AppCompatActivity() {
         val contributionDialog: LinearLayout = findViewById(R.id.total)
         contributionDialog.setOnClickListener {
 
-            val alertDialog = AlertDialog.Builder(this@MainActivity).create()
-            alertDialog.setTitle("")
-            val view =
-                LayoutInflater.from(this@MainActivity).inflate(R.layout.contribution_dialog, null, false)
-            alertDialog.setView(view)
+            Toast.makeText(applicationContext, "To be added soon", Toast.LENGTH_SHORT).show()
 
-            // radio button implementation here...
-
-            alertDialog.show()
+//            val alertDialog = AlertDialog.Builder(this@MainActivity).create()
+//            alertDialog.setTitle("")
+//            val view =
+//                LayoutInflater.from(this@MainActivity).inflate(R.layout.contribution_dialog, null, false)
+//            alertDialog.setView(view)
+//
+//            // radio button implementation here...
+//
+//            alertDialog.show()
 
         }
 

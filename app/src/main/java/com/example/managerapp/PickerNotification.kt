@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.managerapp.helpers.ApiHelper
 import com.example.managerapp.helpers.Constants
+import com.example.managerapp.helpers.PrefsHelper
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -34,6 +35,7 @@ class PickerNotification : AppCompatActivity() {
         val body = JSONObject()
         body.put("notification", message.text.toString())
         body.put("sender","Manager")
+        body.put("county" , PrefsHelper.getPrefs(applicationContext , "county"))
         body.put("title",title.text.toString())
         helper.post(api , body , object:ApiHelper.CallBack{
             override fun onSuccess(result: JSONArray?) {

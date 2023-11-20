@@ -1,30 +1,15 @@
 package com.example.managerapp
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//import android.os.Environment
-//import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-//import androidx.cardview.widget.CardView
-//import java.io.ByteArrayOutputStream
-//import java.io.File
+
 import android.content.Context
 
 
 
-//import com.itextpdf.io.image.ImageDataFactory
-//import com.itextpdf.kernel.pdf.PdfDocument
-//import com.itextpdf.kernel.pdf.PdfWriter
-//import com.itextpdf.layout.Document
-//import com.itextpdf.layout.element.Image
 
 
-import android.content.Intent
-import android.graphics.Color
+
 import android.graphics.pdf.PdfDocument
 import android.os.Bundle
 
@@ -32,7 +17,6 @@ import android.widget.TextView
 import com.example.managerapp.helpers.PrefsHelper
 
 import android.os.Environment
-import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -70,14 +54,16 @@ class PreviewIDActivity : AppCompatActivity() {
 
             // front
             val cardView : CardView = findViewById(R.id.cardView)
-            createAndSavePDF(this, cardView)
+
+
+            createAndSavePDF(applicationContext, cardView)
+
 
 
            // Now you can save the PDF file and provide a download link or any other functionality you want.
             Toast.makeText(applicationContext, "Downloaded Successfully, Check Downloads", Toast.LENGTH_LONG).show()
 
       }
-
 
 
     }
@@ -98,7 +84,9 @@ class PreviewIDActivity : AppCompatActivity() {
             directory.mkdirs()
         }
 
-        val fileName = "KeNaWaPWA.pdf"
+        // Generate a unique file name using timestamp
+        val timestamp = System.currentTimeMillis()
+        val fileName = "IDManager_$timestamp.pdf"
         val file = File(directory, fileName)
 
         try {
@@ -107,9 +95,8 @@ class PreviewIDActivity : AppCompatActivity() {
             pdfDocument.close()
             outputStream.close()
 
-//            // Downloads
-//            val intent = Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)
-//            context.startActivity(intent)
+            // Now you can save the PDF file and provide a download link or any other functionality you want.
+            Toast.makeText(context, "Downloaded Successfully, Check Downloads", Toast.LENGTH_LONG).show()
 
         } catch (e: IOException) {
             e.printStackTrace()

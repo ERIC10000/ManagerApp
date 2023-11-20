@@ -46,7 +46,7 @@ class MembersAdapter (var context : Context):
         val county = holder.itemView.findViewById<TextView>(R.id.countyvalue)
         val ward = holder.itemView.findViewById<TextView>(R.id.wardvalue)
         val phone = holder.itemView.findViewById<TextView>(R.id.telvalue)
-        val next = holder.itemView.findViewById<AppCompatButton>(R.id.btn_download)
+        val next = holder.itemView.findViewById<AppCompatButton>(R.id.btn_delete)
         val image = holder.itemView.findViewById<ImageView>(R.id.bigImage)
 
         regNo.text = "REG.NO: " + itemList[position].DriverID
