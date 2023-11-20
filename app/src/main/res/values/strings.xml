@@ -2,4 +2,5 @@
     <string name="app_name">ManagerApp</string>
     <string name="slogan"> Waste Pickers \n  Management Application </string>
     <string name="the_holder">The Holder of this Identification Card whose photograph and bio data appear on the front of\nthis card is a certified and registered Member of</string>
+    <string name="search_member">Search Member...</string>
 </resources>

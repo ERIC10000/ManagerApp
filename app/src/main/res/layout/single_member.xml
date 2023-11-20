@@ -359,6 +359,7 @@
                 android:id="@+id/btn_download"
                 android:layout_width="130dp"
                 android:layout_height="30dp"
+                android:visibility="invisible"
                 style="@style/blueButtonStyle"
                 android:fontFamily="@font/poppins_thin"
                 android:text="Download"

@@ -56,7 +56,7 @@ dependencies {
     implementation ("com.loopj.android:android-async-http:1.4.11")
 
     // dependency for gson
-    implementation ("com.google.code.gson:gson:2.8.7")
+    implementation ("com.google.code.gson:gson:2.8.9")
 
     // dependency for swipe refresh layout
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
