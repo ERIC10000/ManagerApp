@@ -82,6 +82,9 @@ dependencies {
     // pdf download
     implementation("com.itextpdf.android:itext7-core-android:7.2.3")
 
+    // dependency for gson
+    implementation ("com.google.code.gson:gson:2.8.9")
+
 
 
 }
