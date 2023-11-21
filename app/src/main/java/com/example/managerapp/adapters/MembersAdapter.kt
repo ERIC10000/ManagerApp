@@ -60,9 +60,9 @@ class MembersAdapter (var context : Context):
 
         val id = itemList[position].ID
 
-        next.setOnClickListener {
-            deleteMembers(id.toString())
-        }
+//        next.setOnClickListener {
+//            deleteMembers(id.toString())
+//        }
 
 
         val api = Constants.BASE_URL + "/get_image"
