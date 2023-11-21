@@ -114,27 +114,19 @@ class MembersAdapter (var context : Context):
     }
 
 
-    fun deleteMembers(id: String){
+    private fun deleteMembers(id: String) {
         val helper = ApiHelper(context)
         val api = Constants.BASE_URL + "remove_picker"
         val body = JSONObject()
-        body.put("id",id)
-        helper.post(api , body , object : ApiHelper.CallBack{
-            override fun onSuccess(result: JSONArray?) {
-
-            }
-
-            override fun onSuccess(result: JSONObject?) {
-                Toast.makeText(context, result.toString(), Toast.LENGTH_SHORT).show()
-                notifyDataSetChanged()
-            }
-
-            override fun onFailure(result: String?) {
-
-            }
-        })
+        body.put("id", id)
+        helper.delete(api, body)
 
     }
+
+
+
+
+
 
 
 

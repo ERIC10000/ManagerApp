@@ -54,9 +54,12 @@ class PreviewIDActivity : AppCompatActivity() {
 
             // front
             val cardView : CardView = findViewById(R.id.cardView)
+            // front
+            val cardView2 : CardView = findViewById(R.id.cardView2)
 
 
             createAndSavePDF(applicationContext, cardView)
+            createAndSavePDF(applicationContext, cardView2)
 
 
 

@@ -46,9 +46,11 @@
         app:layout_constraintStart_toStartOf="@id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@id/writeAddress"
         android:textAlignment="center"
-        style="@style/h2"
+        android:textStyle="bold"
+        android:textColor="@color/g_blue"
+        android:textSize="20sp"
         android:gravity="center"
-        android:text="Word Notified : Imara Daima"
+        android:text="View Notification "
         android:layout_marginTop="15dp"/>
     <EditText
         android:id="@+id/emailLogin2"

@@ -1,8 +1,10 @@
 package com.example.managerapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.managerapp.helpers.ApiHelper
@@ -17,6 +19,12 @@ class PickerNotification : AppCompatActivity() {
         setContentView(R.layout.activity_picker_notification)
 
         val message = findViewById<EditText>(R.id.emailLogin)
+        val link = findViewById<TextView>(R.id.Quality)
+
+        link.setOnClickListener {
+            val intent = Intent(applicationContext , Notifications::class.java)
+            startActivity(intent)
+        }
         val title  = findViewById<EditText>(R.id.emailLogin2)
         val send  = findViewById<AppCompatButton>(R.id.btn_register)
         send.setOnClickListener {
