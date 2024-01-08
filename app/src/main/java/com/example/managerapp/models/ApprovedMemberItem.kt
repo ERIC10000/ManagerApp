@@ -4,7 +4,7 @@ data class ApprovedMemberItem(
     val amount: Int,
     val firstName: String,
     val lastName: String,
-    val phoneNumber: Int,
+    val phoneNumber: Long,
     val regDate: String,
     val regNo: Int,
     val status: String
